@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tgz
+*.js
+!.eslintrc.js
+!.prettierrc.js
+!gulpfile.js
+!jest.config.js

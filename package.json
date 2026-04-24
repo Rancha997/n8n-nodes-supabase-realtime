@@ -1,0 +1,67 @@
+{
+  "name": "n8n-nodes-supabase-realtime",
+  "version": "0.1.6",
+  "description": "n8n community trigger node for Supabase Realtime — fires workflows on INSERT, UPDATE, DELETE database events",
+  "keywords": [
+    "n8n-community-node-package",
+    "supabase",
+    "realtime",
+    "trigger",
+    "postgres",
+    "websocket"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Rancha997/n8n-nodes-supabase-realtime",
+  "author": {
+    "name": "Darko Rančić",
+    "email": "contact@darkorancic.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rancha997/n8n-nodes-supabase-realtime.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc && gulp build:icons",
+    "dev": "npm run build -- --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json --ext .ts,.js",
+    "lintfix": "eslint nodes credentials package.json --ext .ts,.js --fix",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/SupabaseRealtimeApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/SupabaseRealtimeTrigger/SupabaseRealtimeTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.2",
+    "gulp": "^4.0.2",
+    "jest": "^30.3.0",
+    "jsonc-eslint-parser": "^3.1.0",
+    "n8n-node-dev": "*",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.4.9",
+    "typescript": "~5.3.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.43.0"
+  }
+}
